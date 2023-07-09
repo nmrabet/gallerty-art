@@ -1,20 +1,17 @@
 import React from "react";
-import paintingSmall from "../assets/img/starry-night/hero-small.jpg";
-import paintingLarge from "../assets/img/starry-night/hero-large.jpg";
 import viewImg from "../assets/shared/icon-view-image.svg";
-import artist from "../assets/img/starry-night/artist.jpg";
 import left from "../assets/shared/icon-back-button.svg";
 import right from "../assets/shared/icon-next-button.svg";
+import Layout from "./Layout";
 
 export default function Artslide() {
   return (
-    <>
+    <Layout>
       <div className="art-slide">
         <div className="responsive">
           <div className="art-container">
             <img
-              src={paintingLarge}
-              srcSet={`${paintingSmall} 320w, ${paintingSmall} 680w, ${paintingLarge} 960w, ${paintingLarge} 1980w`}
+              srcSet={`${"/public/gallery/starry-night/hero-small.jpg"} 320w, ${"/public/gallery/starry-night/hero-small.jpg"} 680w, ${"/public/gallery/starry-night/hero-large.jpg"} 960w, ${"/public/gallery/starry-night/hero-large.jpg"} 1980w`}
               alt="painting"
               className="art-img"
             />
@@ -28,7 +25,11 @@ export default function Artslide() {
             <h4 className="art-artist">Vincent Van Gogh</h4>
           </div>
         </div>
-        <img src={artist} alt="" className="artist" />
+        <img
+          src="/public/gallery/starry-night/artist.jpg"
+          alt=""
+          className="artist"
+        />
         <div className="text-container">
           <p className="date">1889</p>
           <p className="desc">
@@ -60,6 +61,6 @@ export default function Artslide() {
           <img src={right} alt="" />
         </div>
       </div>
-    </>
+    </Layout>
   );
 }

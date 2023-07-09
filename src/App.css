@@ -144,6 +144,11 @@
     top: 120px;
     left: 470px;
   }
+
+  .art-btn {
+    top: 810px;
+  }
+
   .el-footer {
     margin: 0 3em;
   }
