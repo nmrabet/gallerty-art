@@ -40,12 +40,12 @@
 }
 
 .title-container {
+  position: absolute;
   padding: 1em 1.7em;
   background-color: #fff;
   line-height: 0;
   width: 350px;
   top: 460px;
-  position: absolute;
 }
 
 .art-title {
@@ -59,6 +59,7 @@
 
 .artist {
   margin: 4em 1em 1em 1em;
+  align-self: flex-end;
 }
 
 .date {
@@ -90,4 +91,60 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.player {
+  display: flex;
+  gap: 20px;
+}
+
+/* Tablet */
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .responsive {
+    display: flex;
+    align-items: center;
+  }
+  .title-container {
+    top: 120px;
+    right: 0;
+  }
+  .art-btn {
+    top: 390px;
+  }
+  .date {
+    text-align: left;
+    margin: 0.5em 0.2em 0 0;
+  }
+}
+
+/* Desktop */
+
+@media screen and (min-width: 1024px) {
+  .art-slide {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .desc {
+    margin: 10em 1em;
+    max-width: 400px;
+    padding-right: 6em;
+  }
+  .art-title {
+    line-height: 1;
+    font-size: 4rem;
+  }
+  .date {
+    position: absolute;
+    top: 220px;
+    right: 100px;
+    font-size: 180px;
+  }
+  .title-container {
+    top: 120px;
+    left: 470px;
+  }
+  .el-footer {
+    margin: 0 3em;
+  }
 }
