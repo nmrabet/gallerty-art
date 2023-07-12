@@ -172,14 +172,15 @@
 .card-title {
   font-size: 2rem;
   position: absolute;
-  bottom: 115px;
+  bottom: 60px;
   color: #fff;
-  padding-left: 80px;
+  padding-left: 60px;
+  max-width: 70%;
 }
 
 .card-subtitle {
   position: absolute;
-  bottom: 80px;
+  bottom: 40px;
   color: #fff;
-  padding-left: 80px;
+  padding-left: 60px;
 }

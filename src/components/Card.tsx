@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 export default function Card({
   name,
   artist,
@@ -11,9 +11,11 @@ export default function Card({
 }) {
   return (
     <div className="card">
-      <img src={`/gallery/${image}`} alt="" className="gallery-img" />
-      <h2 className="card-title">{name}</h2>
-      <p className="card-subtitle">{artist}</p>
+      <Link to={`/arts/${name}`}>
+        <img src={`/gallery/${image}`} alt="" className="gallery-img" />
+        <h2 className="card-title">{name}</h2>
+        <p className="card-subtitle">{artist}</p>
+      </Link>
     </div>
   );
 }
