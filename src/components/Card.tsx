@@ -10,10 +10,10 @@ export default function Card({
   image: string;
 }) {
   return (
-    <div>
-      <img src={`/gallery/${image}`} alt="" />
-      <h2>{name}</h2>
-      <p>{artist}</p>
+    <div className="card">
+      <img src={`/gallery/${image}`} alt="" className="gallery-img" />
+      <h2 className="card-title">{name}</h2>
+      <p className="card-subtitle">{artist}</p>
     </div>
   );
 }

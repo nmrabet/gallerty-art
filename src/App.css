@@ -2,7 +2,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 1.5em;
+  margin: 1em 0;
+  padding: 0 1em;
 }
 
 .navbar h5 {
@@ -152,4 +153,33 @@
   .el-footer {
     margin: 0 3em;
   }
+}
+
+/* Card component */
+
+.card {
+  margin: 1.5em 0;
+  position: relative;
+}
+
+.gallery-img {
+  width: 90%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-title {
+  font-size: 2rem;
+  position: absolute;
+  bottom: 115px;
+  color: #fff;
+  padding-left: 80px;
+}
+
+.card-subtitle {
+  position: absolute;
+  bottom: 80px;
+  color: #fff;
+  padding-left: 80px;
 }
