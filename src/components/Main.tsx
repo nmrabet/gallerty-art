@@ -1,13 +1,20 @@
 import React from "react";
 import Layout from "./Layout";
-import data from "../data.json";
 import Card from "./Card";
+import useSWR from "swr";
 
 export default function Main() {
-  const cards = data.map((painting) => {
+  const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
+  const { data, error, isLoading } = useSWR("/data.json", fetcher);
+
+  if (error) return <div>Failed to fetch data.</div>;
+  if (isLoading) return <div>Loading...</div>;
+
+  const cards = data.map((painting: any) => {
     return (
       <Card
-        key={painting.name}
+        id={painting.id}
         name={painting.name}
         image={painting.images.gallery}
         artist={painting.artist.name}
