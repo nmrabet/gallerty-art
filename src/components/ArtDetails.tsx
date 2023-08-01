@@ -5,22 +5,14 @@ import viewImg from "../assets/shared/icon-view-image.svg";
 import left from "../assets/shared/icon-back-button.svg";
 import right from "../assets/shared/icon-next-button.svg";
 import Layout from "./Layout";
-import useSWR from "swr";
 import { useParams } from "react-router-dom";
+import data from "../data";
 
 export default function ArtDetails() {
-  const fetcher = (url: string) => fetch(url).then((res) => res.json());
-
-  const params = useParams();
-  console.log(params.id);
-
   const [open, setOpen] = React.useState(false);
-  const { data, error, isLoading } = useSWR("/data.json", fetcher);
 
-  if (error) return <div>Failed to fetch data.</div>;
-  if (isLoading) return <div>Loading...</div>;
-
-  console.log(data)
+  const { id } = useParams();
+  const result = data.find((el) => el.id === Number(id));
 
   return (
     <Layout>
@@ -28,7 +20,7 @@ export default function ArtDetails() {
         <div className="responsive">
           <div className="art-container">
             <img
-              srcSet={`${`/gallery/${data.images.hero.small}`} 320w, ${`/gallery/${data.images.hero.small}`} 680w, ${`/gallery/${data.images.hero.large}`} 960w, ${`/gallery/${data.images.hero.large}`} 1980w`}
+              srcSet={`${`/gallery/${result?.images.hero.small}`} 320w, ${`/gallery/${result?.images.hero.small}`} 680w, ${`/gallery/${result?.images.hero.large}`} 960w, ${`/gallery/${result?.images.hero.large}`} 1980w`}
               alt="painting"
               className="art-img"
             />
@@ -39,30 +31,34 @@ export default function ArtDetails() {
             <Lightbox
               open={open}
               close={() => setOpen(false)}
-              slides={[{ src: `/gallery/${data.gallery}` }]}
+              slides={[{ src: `/gallery/${result?.images.gallery}` }]}
             />
           </div>
           <div className="title-container">
-            <h2 className="art-title">{data.name}</h2>
-            <h4 className="art-artist">{data.artist}</h4>
+            <h2 className="art-title">{result?.name}</h2>
+            <h4 className="art-artist">{result?.artist.name}</h4>
           </div>
         </div>
-        <img src={`/gallery/${data.artist.image}`} alt="" className="artist" />
+        <img
+          src={`/gallery/${result?.artist.image}`}
+          alt=""
+          className="artist"
+        />
         <div className="text-container">
-          <p className="date">{data.year}</p>
-          <p className="desc">{data.description}</p>
+          <p className="date">{result?.year}</p>
+          <p className="desc">{result?.description}</p>
           <div className="link-container">
-            <a href={data.source} className="link">
+            <a href={result?.source} className="link">
               GO TO SOURCE
             </a>
           </div>
         </div>
       </div>
       <div className="progress-bar"></div>
-      <div className="el-footer">
+      <div className="result?-footer">
         <div>
-          <h4>{data.name}</h4>
-          <h5>{data.artist}</h5>
+          <h4>{result?.name}</h4>
+          <h5>{result?.artist.name}</h5>
         </div>
         <div className="player">
           <img src={left} alt="" />
